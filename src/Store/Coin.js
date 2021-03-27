@@ -8,6 +8,8 @@ class CoinStore {
   price = 0
   dateUpdated
 
+  isFavorite = false
+
   constructor(name, ticker) {
     makeAutoObservable(this)
     this.name = name
@@ -22,9 +24,13 @@ class CoinStore {
     }, 2000)
   }
 
-  setPrice(price) {
+  setPrice = price => {
     this.price = price
     this.dateUpdated = new Date()
+  }
+
+  toggleFavorite = () => {
+    this.isFavorite = !this.isFavorite
   }
 }
 
