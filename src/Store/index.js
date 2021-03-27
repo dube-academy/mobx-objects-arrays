@@ -1,9 +1,12 @@
-import { makeAutoObservable } from 'mobx'
-import { fetchBtcPrice } from '../utils'
+import { makeAutoObservable, toJS } from 'mobx'
 
 import CoinStore from './Coin'
 
 class Store {
+  meta = {
+    provider: 'kraken',
+  }
+
   coins = [
     new CoinStore('Bitcoin', 'XBTUSDT'),
     new CoinStore('Ethereum', 'ETHUSDT'),
